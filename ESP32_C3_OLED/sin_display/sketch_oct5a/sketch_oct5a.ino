@@ -19,20 +19,12 @@ void setup(void) {
 }
 
 void loop(void) {
-  drawSineWave();
-  delay(20);
-}
-
-void drawSineWave() {
   static float x = 0;
   u8g2.clearBuffer(); 
   for (int i = 0; i < 128; i++) {
     int y = 35 + 15 * sin((x + i) * 0.1);
     u8g2.drawPixel(i, y);
   }
-
   u8g2.sendBuffer(); 
   x += 1; //animation effect
-
-  delay(5);
 }
